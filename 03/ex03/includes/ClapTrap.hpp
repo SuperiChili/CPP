@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpaic <rpaic@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/05 18:38:10 by rpaic             #+#    #+#             */
+/*   Updated: 2025/02/10 20:18:28 by rpaic            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+
+# include <iostream>
+# define DEBUG 0
+# define CONSTR_DESTR 0
+
+class ClapTrap
+{
+    protected:
+        std::string _name;
+        unsigned int _hitPoints;
+        unsigned int _energyPoints;
+        unsigned int _originalEnergyPoints;
+        unsigned int _attackDamage;
+        
+    public:
+        ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &other);
+        ClapTrap &operator=(const ClapTrap &other);
+        virtual ~ClapTrap(); 
+        virtual void attack(const std::string& target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+        
+        std::string  getName();
+        void         setName(std::string name);
+        unsigned int getHitPoints();
+        unsigned int getEnergyPoints();
+        unsigned int getOriginalEnergyPoints();
+        unsigned int getAttackDamage();
+        void         setEnergyPoints(unsigned int val);
+        
+        
+};
+
+#endif
